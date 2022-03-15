@@ -22,12 +22,12 @@ $param = @{
     tenantName    = $tenantName
 }
 
-$token = Get-ApplicationToken @param
+$token = Get-PWApplicationToken @param
 
 #Get all users
 
 if ($token) {
-    $ListOfUsers = Get-ADDSExpiringPasswordList
+    $ListOfUsers = Get-PWADDSExpiringPassword
     Write-Verbose ("User Account: {0}, ExpiresOn: {1}, Days: {2} " -f $ListOfUsers[0].Name, $ListOfUsers[0].PasswordExpiresOn, $ListOfUsers[0].PasswordDaystoExpire)
     foreach ($user in $ListOfUsers[0]) {
         $params = @{
@@ -42,6 +42,6 @@ if ($token) {
             Logging               = $true
             
         }
-        Send-ExpiringMailMessage @params -Verbose
+        Send-PWExpiringMailMessage @params -Verbose
     }
 }  

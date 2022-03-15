@@ -1,10 +1,10 @@
-﻿function Set-EmailBody {
+﻿function Set-PWEmailBody {
     [cmdletbinding()]
     param (
       [string]$Subject,
       [string]$Importance,
       [String]$Message,
-      [string]$EmailAddress    
+      [string]$EmailAddress
     )
 
     $body = [pscustomobject]@{

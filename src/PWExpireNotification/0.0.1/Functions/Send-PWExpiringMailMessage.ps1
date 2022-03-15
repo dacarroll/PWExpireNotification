@@ -1,4 +1,4 @@
-﻿function Send-ExpiringMailMessage {
+﻿function Send-PWExpiringMailMessage {
     [cmdletbinding()]
     param(
         [parameter(Mandatory = $true)]
@@ -67,9 +67,9 @@
         else { $emailAddress = $ADAccount.EmailAddress }
         Write-Verbose ("EmailAddress to recieve email: {0}" -f $emailAddress)
         # Email Subject Set Here
-        $subject= Set-EmailMessageBody -ADAccount $ADAccount -Subject "Your password will expire {0}"
-        $Message = Set-EmailMessageBody -TextToAdd $TextToAdd -ADAccount $ADAccount -Signature $Signature
-        $body = Set-EmailBody -Subject $subject -Importance 'High' -Message $Message -EmailAddress $emailAddress
+        $subject= Set-PWEmailMessagePayload -ADAccount $ADAccount -Subject "Your password will expire {0}"
+        $Message = Set-PWEmailMessagePayload -TextToAdd $TextToAdd -ADAccount $ADAccount -Signature $Signature
+        $body = Set-PWEmailBody -Subject $subject -Importance 'High' -Message $Message -EmailAddress $emailAddress
         
         #Send the email message
         if (($ADAccount.PasswordDaystoExpire -ge "0") -and ($ADAccount.PasswordDaystoExpire -le $ExpireInDaysThreshold)) {

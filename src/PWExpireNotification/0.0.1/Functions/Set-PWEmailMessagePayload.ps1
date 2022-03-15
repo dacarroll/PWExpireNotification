@@ -1,4 +1,4 @@
-﻿Function Set-EmailMessageBody {
+﻿Function Set-PWEmailMessagePayload {
     [cmdletbinding()]
     param (
         [parameter(

@@ -1,4 +1,4 @@
-﻿function Get-ApplicationToken {
+﻿function Get-PWApplicationToken {
     [cmdletbinding()]
     param (
         [parameter(Mandatory = $true)]

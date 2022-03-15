@@ -3,7 +3,7 @@ param()
 Write-Verbose $PSScriptRoot
 
 Write-Verbose 'Import everything in sub folders public, private folder'
-$functionFolders = @('Public', 'Private')
+$functionFolders = @('Functions', 'Internal')
 ForEach ($folder in $functionFolders) {
     $folderPath = Join-Path -Path $PSScriptRoot -ChildPath $folder
     If (Test-Path -Path $folderPath) {
