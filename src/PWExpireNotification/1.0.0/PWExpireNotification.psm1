@@ -1,3 +1,4 @@
+# .ExternalHelp PWExpireNotifictaion-help.xml
 [cmdletbinding()]
 param()
 Write-Verbose $PSScriptRoot

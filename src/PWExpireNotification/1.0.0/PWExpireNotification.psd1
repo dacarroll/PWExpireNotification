@@ -12,7 +12,7 @@
 RootModule = 'PWExpireNotification.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.1'
+ModuleVersion = '1.0.0'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -101,7 +101,7 @@ PrivateData = @{
         # LicenseUri = ''
 
         # A URL to the main website for this project.
-        ProjectUri = 'https://github.com/dacarroll/ADDSPasswordNotification'
+        ProjectUri = 'https://github.com/dacarroll/PWExpireNotification'
 
         # A URL to an icon representing this module.
         # IconUri = ''
@@ -117,7 +117,7 @@ PrivateData = @{
 } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
-# HelpInfoURI = ''
+ HelpInfoURI = 'https://github.com/dacarroll/PWExpireNotification/docs'
 
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''

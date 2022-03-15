@@ -1,7 +1,7 @@
 ﻿Function Get-PWADDSExpiringPassword {
     [cmdletbinding()]
     param (
-        $ExpireInDays = 30,
+        [int]$ExpireInDays = 30,
 
         [scriptblock]$ADFilter,
 

@@ -10,7 +10,7 @@
         [parameter(Mandatory = $true)]
         [string]$SendEmailAccount,
 
-        [parameter(Mandatory = $true)]
+        [parameter(Mandatory = $True)]
         [string]$Token,
 
         [parameter(Mandatory = $false)]
@@ -40,7 +40,11 @@
     begin{
         <#TODO
             Update handling of logging for Notified
-        #>  
+        #>
+        if (!$token) {
+            Write-Error "No Token. Please provide a valide token"
+            Break
+        }  
     }
 
     process{
@@ -98,7 +102,6 @@
             }
         }
     }
-
+    
     end{}
-
 }
