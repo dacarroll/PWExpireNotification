@@ -1,4 +1,5 @@
 # ADDSPasswordNotification
+
 Solution to send password expiring notifications to ADDS users using O365 Mailbox. It is suggested that you review the article located here: https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-365-password-expiration-notification-email-solution/ba-p/2796353
 
 ## Getting Started
@@ -18,7 +19,7 @@ Solution to send password expiring notifications to ADDS users using O365 Mailbo
         To change your password on a PC press CTRL ALT Delete and choose Change Password
         Line2 goes here
         Line 3 goes here
-"@,
+    "@,
         $Signature = "Jolly B. Admin",
         $Logging = $true,
         $ExpireInDaysThreshold = 39
