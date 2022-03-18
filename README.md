@@ -1,9 +1,9 @@
 # ADDSPasswordNotification
-Solution to send password expiring notifications to ADDS users using O365 Mailbox
+Solution to send password expiring notifications to ADDS users using O365 Mailbox. It is suggested that you review the article located here: https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/microsoft-365-password-expiration-notification-email-solution/ba-p/2796353
 
 ## Getting Started
 
-1. First Save the below script into a directory
+1. First Save the below script into a directory. A suggested name would be PWExpireNotification.ps1
 
     ```PowerShell
     [cmdletbinding()]
@@ -59,13 +59,20 @@ Solution to send password expiring notifications to ADDS users using O365 Mailbo
     }
     ```
 
-2. Create an application within AAD and provide it Mail.Send Graph permissions
+2. Install the PWExpireNotification PowerShell module. You can do this by copying the module directly from GitHub into your local computer PowerShell module store, or running the following PowerShell command:
 
-3. Create a client secret for the application
+   ```PowerShell
+    Install-module PWExpireNotification,
+    ``` 
 
-4. Create a shared mailbox within O365
+3. Create an application within AAD and provide it Mail.Send Graph permissions
 
-5. Copy the clientID, tenantName, and shared mailbox name and place in the parameters at the top of the script
+4. Create a client secret for the application. Do not forget to copy the secret to your clipboard or you will be forcet to recreate it.
+
+5. Create a shared mailbox within O365
+
+6. Copy the clientID, tenantName, and shared mailbox name and place in the parameters at the top of the script
+#The clientID is the Application ID created above.
 
     ```PowerShell
     $clientID = 'ClientID GUID',
@@ -73,9 +80,9 @@ Solution to send password expiring notifications to ADDS users using O365 Mailbo
     $SendEmailAccount = 'mysharedmailbox.mydomain.com',
     ```
 
-6. If testing enter in the test address that all emails will go to within the TestAddress paramter
+7. If testing enter in the test address that all emails will go to within the $TestAddress paramter
 
-7. Save the application secret to a PScredential file.
+8. Save the application secret to a PScredential file.
 
     ```PowerShell
         $appsecret = 'secret'
