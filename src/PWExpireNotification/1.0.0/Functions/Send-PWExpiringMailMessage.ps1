@@ -44,7 +44,7 @@
         if (!$token) {
             Write-Error "No Token. Please provide a valide token"
             Break
-        }  
+        }
     }
 
     process{
@@ -64,7 +64,7 @@
         }
 
         # If a user has no email address listed
-        elseif ($ADAccount.EmailAddress -eq $null) {
+        elseif (!($ADAccount.EmailAddress)) {
             $emailAddress = $TestAddress
             if (!($emailAddress)) {throw "No email address"}
         }
@@ -74,7 +74,7 @@
         $subject= Set-PWEmailMessagePayload -ADAccount $ADAccount -Subject "Your password will expire {0}"
         $Message = Set-PWEmailMessagePayload -TextToAdd $TextToAdd -ADAccount $ADAccount -Signature $Signature
         $body = Set-PWEmailBody -Subject $subject -Importance 'High' -Message $Message -EmailAddress $emailAddress
-        
+
         #Send the email message
         if (($ADAccount.PasswordDaystoExpire -ge "0") -and ($ADAccount.PasswordDaystoExpire -le $ExpireInDaysThreshold)) {
             $sent = "Yes"
@@ -102,6 +102,6 @@
             }
         }
     }
-    
+
     end{}
 }

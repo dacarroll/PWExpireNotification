@@ -1,5 +1,8 @@
 ﻿Function Get-PWADDSExpiringPassword {
     [cmdletbinding()]
+
+    [OutputType([System.Collections.Generic.List[PSCustomObject]])]
+
     param (
         [int]$ExpireInDays = 30,
 
@@ -19,7 +22,7 @@
         if ($PSBoundParameters.ContainsKey('ADFilter' )) {
             $users = get-aduser -filter $ADFilter -Properties Name, PasswordNeverExpires, PasswordExpired, PasswordLastSet, EmailAddress
             if ($PSBoundParameters.ContainsKey('IncludeAll')) {
-                $users = $users | Where-Object {$PSItem.PasswordLastSet -ne $null}
+                $users = $users | Where-Object {$null -ne $PSItem.PasswordLastSet}
             }
             else {
                 $users = $users | Where-Object { ($PSItem.Enabled -eq $true) -and ($PSItem.PasswordNeverExpires -eq $false) -and ($PSItem.PasswordExpired -eq $false) }
@@ -28,7 +31,7 @@
         else {
             $users = Get-ADUser -filter * -Properties Name, PasswordNeverExpires, PasswordExpired, PasswordLastSet, EmailAddress
             if ($PSBoundParameters.ContainsKey('IncludeAll')) {
-                $users = $users | Where-Object {$PSItem.PasswordLastSet -ne $null}
+                $users = $users | Where-Object {$null -ne $PSItem.PasswordLastSet}
             }
             else {
                 $users = $users |  Where-Object { ($PSItem.Enabled -eq $true) -and ($PSItem.PasswordNeverExpires -eq $false) -and ($PSItem.PasswordExpired -eq $false) }
@@ -42,7 +45,7 @@
             Write-Verbose "$($user.Name)"
             $PasswordPol = (Get-AduserResultantPasswordPolicy $user)
             # Check for Fine Grained Password
-            if (($PasswordPol) -ne $null) {
+            if ($PasswordPol) {
                 $maxPasswordAge = ($PasswordPol).MaxPasswordAge
             }
             else{

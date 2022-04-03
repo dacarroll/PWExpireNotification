@@ -38,7 +38,7 @@
             }
             $TokenResponse = Invoke-RestMethod @params -Body $ReqTokenBody
             return $TokenResponse.access_token
-        } 
+        }
         catch {
             $_
             #[System.ApplicationException]::new("Failed to aquire token")
