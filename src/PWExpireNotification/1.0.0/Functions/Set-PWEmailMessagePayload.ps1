@@ -53,5 +53,5 @@ $Signature
     elseif ($PSBoundParameters.ContainsKey('Subject')) {
         $outtext = ($Subject -f $messageDays)
     }
-return $outtext 
-}    
+return $outtext
+}
