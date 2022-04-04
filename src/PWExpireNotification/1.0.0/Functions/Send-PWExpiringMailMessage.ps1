@@ -71,9 +71,9 @@
         else { $emailAddress = $ADAccount.EmailAddress }
         Write-Verbose ("EmailAddress to recieve email: {0}" -f $emailAddress)
         # Email Subject Set Here
-        $subject= Set-PWEmailMessagePayload -ADAccount $ADAccount -Subject "Your password will expire {0}"
-        $Message = Set-PWEmailMessagePayload -TextToAdd $TextToAdd -ADAccount $ADAccount -Signature $Signature
-        $body = Set-PWEmailBody -Subject $subject -Importance 'High' -Message $Message -EmailAddress $emailAddress
+        $subject= New-PWEmailMessagePayload -ADAccount $ADAccount -Subject "Your password will expire {0}"
+        $Message = New-PWEmailMessagePayload -TextToAdd $TextToAdd -ADAccount $ADAccount -Signature $Signature
+        $body = New-PWEmailBody -Subject $subject -Importance 'High' -Message $Message -EmailAddress $emailAddress
 
         #Send the email message
         if (($ADAccount.PasswordDaystoExpire -ge "0") -and ($ADAccount.PasswordDaystoExpire -le $ExpireInDaysThreshold)) {

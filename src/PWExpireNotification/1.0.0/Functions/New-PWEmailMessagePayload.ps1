@@ -1,5 +1,5 @@
-﻿Function Set-PWEmailMessagePayload {
-    [cmdletbinding()]
+﻿Function New-PWEmailMessagePayload {
+    [cmdletbinding(SupportsShouldProcess=$true)]
     param (
         [parameter(
             Mandatory=$true,
@@ -29,14 +29,6 @@
         )]
         [String]$Subject
     )
-
-    if (($ADAccount.PasswordDaystoExpire) -gt "1") {
-        $messageDays = "in " + "$($ADAccount.PasswordDaystoExpire)" + " days."
-    }
-    else {
-        $messageDays = "today."
-    }
-    if ($PSBoundParameters.ContainsKey('Signature')) {
     $text = @"
 Dear {0},
 
@@ -48,10 +40,22 @@ Thanks,
 
 $Signature
 "@
-    $outtext = ($text -f $ADAccount.Name, $messageDays)
+
+    if ($PSCmdlet.ShouldProcess("Creating new {0}" -f $PSCmdlet.ParameterSetName)) {
+
+        if (($ADAccount.PasswordDaystoExpire) -gt "1") {
+            $messageDays = "in " + "$($ADAccount.PasswordDaystoExpire)" + " days."
+        }
+        else {
+            $messageDays = "today."
+        }
+        if ($PSBoundParameters.ContainsKey('Signature')) {
+
+        $outtext = ($text -f $ADAccount.Name, $messageDays)
+        }
+        elseif ($PSBoundParameters.ContainsKey('Subject')) {
+            $outtext = ($Subject -f $messageDays)
+        }
+        return $outtext
     }
-    elseif ($PSBoundParameters.ContainsKey('Subject')) {
-        $outtext = ($Subject -f $messageDays)
-    }
-return $outtext
 }
