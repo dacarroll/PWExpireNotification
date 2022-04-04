@@ -33,7 +33,7 @@ Copyright = 'This work is licensed under the Creative Commons Attribution 4.0 In
 Description = 'PowerShell module for sending notifications to end users when their password is expiring using an O365 mailbox'
 
 # Minimum version of the Windows PowerShell engine required by this module
-# PowerShellVersion = ''
+ PowerShellVersion = ''
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-         Tags = @('Active Directory','Password Expiration','Email Notification','O365 Mail Notification','Microsoft Graph','Send Mail')
+         Tags = @('ActiveDirectory','PasswordExpiration','EmailNotification','O365MailNotification','MicrosoftGraph','SendMail')
 
         # A URL to the license for this module.
          LicenseUri = 'https://raw.githubusercontent.com/dacarroll/PWExpireNotification/main/LICENSE'
