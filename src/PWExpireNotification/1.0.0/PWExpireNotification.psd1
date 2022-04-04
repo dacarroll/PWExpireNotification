@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-         Tags = @('Active Directory', 'Password Expiration', 'Email Notification', 'O365 Mail Notification', 'Microsoft Graph', 'Send Mail')
+         Tags = @('Active Directory','Password Expiration','Email Notification','O365 Mail Notification','Microsoft Graph','Send Mail')
 
         # A URL to the license for this module.
          LicenseUri = 'https://raw.githubusercontent.com/dacarroll/PWExpireNotification/main/LICENSE'
