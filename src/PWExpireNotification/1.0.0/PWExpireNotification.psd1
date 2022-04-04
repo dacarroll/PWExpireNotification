@@ -51,7 +51,7 @@ Description = 'PowerShell module for sending notifications to end users when the
 # ProcessorArchitecture = ''
 
 # Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @('ActiveDirectory')
+#RequiredModules = @('ActiveDirectory')
 
 # Assemblies that must be loaded prior to importing this module
 # RequiredAssemblies = @()
@@ -110,7 +110,7 @@ PrivateData = @{
         # ReleaseNotes = ''
 
         # External dependent modules of this module
-        # ExternalModuleDependencies = ''
+         ExternalModuleDependencies = 'ActiveDirectory'
 
     } # End of PSData hashtable
 
