@@ -69,7 +69,7 @@ RequiredModules = @('ActiveDirectory')
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Set-PWEmailBody','Get-PWApplicationToken','Get-PWADDSExpiringPassword','Send-PWExpiringMailMessage','Set-PWEmailMessagePayload')
+FunctionsToExport = @('New-PWEmailBody','Get-PWApplicationToken','Get-PWADDSExpiringPassword','Send-PWExpiringMailMessage','New-PWEmailMessagePayload')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()
@@ -98,7 +98,7 @@ PrivateData = @{
          Tags = @('Active Directory', 'Password Expiration', 'Email Notification', 'O365 Mail Notification', 'Microsoft Graph', 'Send Mail')
 
         # A URL to the license for this module.
-         LicenseUri = ''
+         LicenseUri = 'https://raw.githubusercontent.com/dacarroll/PWExpireNotification/main/LICENSE'
 
         # A URL to the main website for this project.
         ProjectUri = 'https://github.com/dacarroll/PWExpireNotification'

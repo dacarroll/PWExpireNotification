@@ -1,12 +1,11 @@
-﻿function Set-PWEmailBody {
-    [cmdletbinding()]
-    param (
-      [string]$Subject,
-      [string]$Importance,
-      [String]$Message,
-      [string]$EmailAddress
-    )
-
+﻿[cmdletbinding(SupportsShouldProcess=$true)]
+param (
+  [string]$Subject,
+  [string]$Importance,
+  [String]$Message,
+  [string]$EmailAddress
+)
+if ($PSCmdlet.ShouldProcess(("Subject:{0}; Message: {1}; Recipient(s):{2}" -f $Subject,$Message,$EmailAddress))) {
     $body = [pscustomobject]@{
         Message = [pscustomobject]@{
             Subject = $subject
