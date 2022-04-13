@@ -12,7 +12,7 @@
 RootModule = 'PWExpireNotification.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -33,7 +33,7 @@ Copyright = 'This work is licensed under the Creative Commons Attribution 4.0 In
 Description = 'PowerShell module for sending notifications to end users when their password is expiring using an O365 mailbox'
 
 # Minimum version of the Windows PowerShell engine required by this module
- PowerShellVersion = ''
+PowerShellVersion = '5.1'
 
 # Name of the Windows PowerShell host required by this module
 # PowerShellHostName = ''
@@ -107,7 +107,7 @@ PrivateData = @{
         # IconUri = ''
 
         # ReleaseNotes of this module
-        # ReleaseNotes = ''
+         ReleaseNotes = 'Minor fix for New-PWEmailBody'
 
         # External dependent modules of this module
          ExternalModuleDependencies = 'ActiveDirectory'
